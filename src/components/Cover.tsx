@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import bgImage from '../assets/wedding_bg.png'
+import gununganBg from '../assets/gunungan.png'
+import floralBg from '../assets/wedding_bg.png'
 
 interface CoverProps {
   isOpened: boolean
@@ -20,16 +21,20 @@ export default function Cover({ isOpened, onOpen }: CoverProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-between p-8 text-center bg-wedding-cream transition-all duration-[1200ms] ease-in-out select-none max-w-[480px] mx-auto shadow-2xl border-x border-wedding-sky/20 ${
-        isOpened ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
-      }`}
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-between p-8 text-center bg-wedding-cream transition-all duration-[1200ms] ease-in-out select-none max-w-[480px] mx-auto shadow-2xl border-x border-wedding-sky/20 ${isOpened ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
+        }`}
     >
-      {/* Premium Background Image with Soft Cream Overlay */}
+      {/* Layered Backgrounds: Floral edges + Centered Javanese Gunungan */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-        style={{ backgroundImage: `url(${bgImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90 transition-opacity duration-1000 animate-zoom-bg"
+        style={{ backgroundImage: `url(${floralBg})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-wedding-cream/80 via-wedding-cream/60 to-wedding-cream/90" />
+      <div
+        className="absolute inset-0 w-[60%] h-[60%] m-auto bg-contain bg-center bg-no-repeat opacity-30 mix-blend-multiply transition-opacity duration-1000"
+        style={{ backgroundImage: `url(${gununganBg})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-wedding-cream/70 via-wedding-cream/45 to-wedding-cream/85" />
+
 
       {/* Elegant Border Frame */}
       <div className="absolute inset-4 border border-wedding-gold/30 pointer-events-none rounded-sm">
@@ -49,7 +54,7 @@ export default function Cover({ isOpened, onOpen }: CoverProps) {
         <h1 className="font-alex text-6xl md:text-7xl text-wedding-navy drop-shadow-sm mb-4 animate-pulse-slow">
           Rian & Nadine
         </h1>
-        
+
         {/* Date of Event */}
         <p className="font-cinzel text-sm tracking-[0.2em] text-wedding-gold-dark font-medium mb-8">
           18 . 10 . 2026

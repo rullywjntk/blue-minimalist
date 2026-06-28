@@ -20,6 +20,9 @@
   /* Custom Transitions & Animation */
   --animate-fade-in-up: fade-in-up 1.2s ease-out forwards;
   --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-float-slow-reverse: float-slow-reverse 9s ease-in-out infinite;
+  --animate-zoom-bg: zoom-bg 12s ease-in-out infinite;
 
   @keyframes fade-in-up {
     from {
@@ -29,6 +32,33 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(6px, 8px) rotate(3deg);
+    }
+  }
+
+  @keyframes float-slow-reverse {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(-8px, -6px) rotate(-3deg);
+    }
+  }
+
+  @keyframes zoom-bg {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06) translate(1%, -1%);
     }
   }
 }
