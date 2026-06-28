@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Premium Wedding Color Palette */
+  --color-wedding-navy: #1b2b48;
+  --color-wedding-slate: #547294;
+  --color-wedding-sky: #a3b8cc;
+  --color-wedding-ice: #f0f4f8;
+  --color-wedding-cream: #faf9f6;
+  --color-wedding-gold: #c5a880;
+  --color-wedding-gold-dark: #a88b62;
+
+  /* Typography */
+  --font-serif: "Playfair Display", serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-alex: "Alex Brush", cursive;
+
+  /* Custom Transitions & Animation */
+  --animate-fade-in-up: fade-in-up 1.2s ease-out forwards;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Custom Base Styles for Mobile-First SPA Layout */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #f1f5f9; /* Slate background on desktop */
+    font-family: var(--font-sans);
+    color: var(--color-wedding-navy);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Center the mobile layout on desktop */
+  #root {
+    width: 100%;
+    max-width: 480px; /* Standard mobile breakpoint width */
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: var(--color-wedding-cream);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* Smooth scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-wedding-cream);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-wedding-sky);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-wedding-slate);
+  }
+}
